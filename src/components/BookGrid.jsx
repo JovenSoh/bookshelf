@@ -17,33 +17,41 @@ function getRandomIndexes(rows) {
   return rows.map(row => Math.floor(Math.random() * row.length));
 }
 
-function AccordionContent({ book, expanded }) {
+function AccordionContent({ book, expanded, isMobile }) {
   return (
     <div
-      className={`flex h-full items-center transition-[width] duration-500 ease-in-out overflow-hidden bg-black ${expanded ? 'w-[700px]' : 'w-0 pointer-events-none'}`}
-      style={{ minWidth: expanded ? PANEL_WIDTH : 0, width: expanded ? PANEL_WIDTH : 0 }}
+      className={`flex items-center transition-[width] duration-500 ease-in-out overflow-hidden bg-black ${
+        isMobile
+          ? `w-full max-w-full ${expanded ? 'h-auto py-6' : 'h-0 py-0'}`
+          : `${expanded ? 'w-[700px]' : 'w-0'} h-full`
+      }`}
+      style={
+        isMobile
+          ? { minWidth: expanded ? '100%' : 0, width: expanded ? '100%' : 0, paddingLeft: expanded ? 0 : 0, paddingRight: expanded ? 0 : 0 }
+          : { minWidth: expanded ? PANEL_WIDTH : 0, width: expanded ? PANEL_WIDTH : 0 }
+      }
     >
       {expanded && (
-        <>
+        <div className={`flex ${isMobile ? 'flex-col items-center w-full' : 'flex-row items-center w-full h-full'}`}>
           <img
             src={book.coverImage}
             alt={book.title}
-            className="w-[220px] h-[350px] object-cover rounded-xl shadow-2xl mr-8 ml-8 bg-black"
+            className={`object-cover rounded-xl shadow-2xl ${isMobile ? 'w-40 h-56 mb-4' : 'w-[220px] h-[350px] mr-8 ml-8 bg-black'}`}
           />
-          <div className="flex-1 flex flex-col justify-center pr-8 bg-black">
-            <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
-            <h2 className="text-lg text-gray-300 mb-6 font-medium">By {book.author}</h2>
-            <h3 className="text-xl font-semibold mb-2">Synopsis</h3>
-            <p className="text-gray-300 mb-6">{book.synopsis}</p>
-            <h3 className="text-xl font-semibold mb-2">My Notes</h3>
+          <div className={`flex-1 flex flex-col justify-center ${isMobile ? 'items-center px-2' : 'pr-8 bg-black'}`}>
+            <h1 className={`font-bold mb-2 ${isMobile ? 'text-2xl text-center' : 'text-3xl'}`}>{book.title}</h1>
+            <h2 className={`mb-4 font-medium text-gray-300 ${isMobile ? 'text-base text-center' : 'text-lg mb-6'}`}>By {book.author}</h2>
+            <h3 className={`font-semibold mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>Synopsis</h3>
+            <p className={`mb-4 text-gray-300 ${isMobile ? 'text-sm text-center' : 'mb-6'}`}>{book.synopsis}</p>
+            <h3 className={`font-semibold mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>My Notes</h3>
             <textarea
               value={book.notes}
-              className="w-full bg-black text-white resize-none shadow-md"
-              rows={4}
+              className={`w-full bg-black text-white resize-none shadow-md ${isMobile ? 'rounded-lg focus:outline-none min-h-[60px] text-sm' : 'rounded-lg focus:outline-none '}`}
+              rows={isMobile ? 3 : 4}
               readOnly
             />
           </div>
-        </>
+        </div>
       )}
     </div>
   );
@@ -51,10 +59,20 @@ function AccordionContent({ book, expanded }) {
 
 export default function BookGrid() {
   const bookRows = chunkArray(books, TABS_PER_ROW);
-  // Randomize the initially selected book in each row
   const [openIndexes, setOpenIndexes] = useState(() => getRandomIndexes(bookRows));
   const [animating, setAnimating] = useState(false);
   const animationTimeout = useRef(null);
+
+  // Responsive check
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 768);
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleTabClick = (rowIdx, tabIdx) => {
     if (animating || openIndexes[rowIdx] === tabIdx) return;
@@ -67,27 +85,28 @@ export default function BookGrid() {
   };
 
   return (
-    <main className="min-h-screen px-4 sm:px-12 py-12 text-white">
+    <main className="min-h-screen px-2 sm:px-4 md:px-12 py-8 md:py-12 text-white">
       <div className="flex flex-col space-y-12 items-center">
         {bookRows.map((row, rowIdx) => {
           const expandedIdx = openIndexes[rowIdx];
-          const leftTabs = row.slice(0, expandedIdx + 1);
-          const rightTabs = row.slice(expandedIdx + 1);
           return (
-            <div key={rowIdx} className="flex items-center justify-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible h-[350px]">
-              {/* Left Tabs */}
-              <div className="flex flex-row h-full">
-                {leftTabs.map((book, tabIdx) => {
+            <div
+              key={rowIdx}
+              className={`flex items-center justify-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible ${isMobile ? 'h-auto flex-col' : 'h-[350px] flex-row'}`}
+            >
+              {/* Tabs Row (scrollable on mobile) */}
+              <div className={`flex ${isMobile ? 'flex-row w-full overflow-x-auto no-scrollbar mb-2' : 'flex-row h-full'}`} style={isMobile ? { WebkitOverflowScrolling: 'touch' } : {}}>
+                {row.map((book, tabIdx) => {
                   const realIdx = tabIdx;
                   return (
                     <button
                       key={book.id}
                       onClick={() => handleTabClick(rowIdx, realIdx)}
-                      className={`flex items-end justify-center h-full w-16 border-r border-gray-800 bg-black transition-all duration-200 focus:outline-none ${
+                      className={`flex items-end justify-center ${isMobile ? 'w-24 h-16 min-w-[96px] max-w-[120px] border-b border-gray-800' : 'h-full w-16 border-r border-gray-800'} bg-black transition-all duration-200 focus:outline-none ${
                         expandedIdx === realIdx
                           ? 'bg-[#232323] text-white font-bold' : 'text-gray-400 hover:text-white'
                       }`}
-                      style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
+                      style={isMobile ? { writingMode: 'horizontal-tb', textOrientation: 'mixed', fontSize: '1rem', letterSpacing: '0.05em' } : { writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
                       disabled={animating}
                     >
                       {book.title}
@@ -95,34 +114,14 @@ export default function BookGrid() {
                   );
                 })}
               </div>
-              {/* Animated Expanded Content */}
-              <AccordionContent book={row[expandedIdx]} expanded={true} />
-              {/* Right Tabs - animate marginLeft to shift right */}
-              <div
-                className="flex flex-row h-full transition-[margin] duration-500 ease-in-out"
-                style={{ marginLeft: expandedIdx === row.length - 1 ? 0 : 0 }}
-              >
-                {rightTabs.map((book, tabIdx) => {
-                  const realIdx = expandedIdx + 1 + tabIdx;
-                  return (
-                    <button
-                      key={book.id}
-                      onClick={() => handleTabClick(rowIdx, realIdx)}
-                      className={`flex items-end justify-center h-full w-16 border-r border-gray-800 bg-black transition-all duration-200 focus:outline-none text-gray-400 hover:text-white`}
-                      style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
-                      disabled={animating}
-                    >
-                      {book.title}
-                    </button>
-                  );
-                })}
-              </div>
+              {/* Expanded Content */}
+              <AccordionContent book={row[expandedIdx]} expanded={true} isMobile={isMobile} />
             </div>
           );
         })}
       </div>
-      <div className="flex flex-col items-center justify-center mt-20 mb-8">
-        <p className="text-lg text-gray-300 text-center max-w-xl">
+      <div className="flex flex-col items-center justify-center mt-20 mb-8 px-2">
+        <p className="text-base md:text-lg text-gray-300 text-center max-w-xl">
           BookShelf is my personal space to collect, reflect, and share on the books that have shaped my journey. I hope it inspires you to read, think, and grow too.
         </p>
         <a

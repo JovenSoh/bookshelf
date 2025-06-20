@@ -4,6 +4,7 @@ html, body {
   background: #000;
   color: #fff;
   transition: background 0.3s, color 0.3s;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* heart‑shaped mask */
