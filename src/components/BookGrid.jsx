@@ -13,6 +13,10 @@ function chunkArray(array, size) {
   return result;
 }
 
+function getRandomIndexes(rows) {
+  return rows.map(row => Math.floor(Math.random() * row.length));
+}
+
 function AccordionContent({ book, expanded }) {
   return (
     <div
@@ -27,6 +31,8 @@ function AccordionContent({ book, expanded }) {
             className="w-[220px] h-[350px] object-cover rounded-xl shadow-2xl mr-8 ml-8 bg-black"
           />
           <div className="flex-1 flex flex-col justify-center pr-8 bg-black">
+            <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
+            <h2 className="text-lg text-gray-300 mb-6 font-medium">By {book.author}</h2>
             <h3 className="text-xl font-semibold mb-2">Synopsis</h3>
             <p className="text-gray-300 mb-6">{book.synopsis}</p>
             <h3 className="text-xl font-semibold mb-2">My Notes</h3>
@@ -45,7 +51,8 @@ function AccordionContent({ book, expanded }) {
 
 export default function BookGrid() {
   const bookRows = chunkArray(books, TABS_PER_ROW);
-  const [openIndexes, setOpenIndexes] = useState(bookRows.map(() => 0));
+  // Randomize the initially selected book in each row
+  const [openIndexes, setOpenIndexes] = useState(() => getRandomIndexes(bookRows));
   const [animating, setAnimating] = useState(false);
   const animationTimeout = useRef(null);
 
@@ -67,7 +74,7 @@ export default function BookGrid() {
           const leftTabs = row.slice(0, expandedIdx + 1);
           const rightTabs = row.slice(expandedIdx + 1);
           return (
-            <div key={rowIdx} className="flex items-center justify-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible h-[400px]">
+            <div key={rowIdx} className="flex items-center justify-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible h-[350px]">
               {/* Left Tabs */}
               <div className="flex flex-row h-full">
                 {leftTabs.map((book, tabIdx) => {

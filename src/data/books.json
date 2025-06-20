@@ -140,7 +140,7 @@
     "author": "Erich Maria Remarque",
     "coverImage": "/images/western.png",
     "synopsis": "A soldier's experience in World War I.",
-    "notes": "Haunting and powerful.",
+    "notes": "Read the novel then watched the netflix movie. Was serving the nation when I was reading this.",
     "status": "finished"
   },
   {
@@ -149,8 +149,8 @@
     "author": "Osamu Dazai",
     "coverImage": "/images/osamu.png",
     "synopsis": "A dark exploration of alienation and despair.",
-    "notes": "Deeply introspective.",
-    "status": "reading"
+    "notes": "Love a book where the author is a terrible person, and doesn't seek redemption but death. Every step he takes leads him deeper into the abyss, and the introspection worsens the suffering.",
+    "status": "finished"
   },
   {
     "id": "18",
@@ -158,7 +158,7 @@
     "author": "Orson Scott Card",
     "coverImage": "/images/ender.png",
     "synopsis": "A young boy is trained to save humanity from alien threat.",
-    "notes": "Exciting and thought-provoking.",
+    "notes": "First half was a pretty entertaining read, but the second half felt kinda rushed? Maybe the author didnt intend to drag it out for so long.",
     "status": "finished"
   },
   {
@@ -167,7 +167,7 @@
     "author": "Mitch Albom",
     "coverImage": "/images/heaven.png",
     "synopsis": "A man's journey through the afterlife and the people he meets.",
-    "notes": "Uplifting and memorable.",
-    "status": "reading"
+    "notes": "ngl forgot what happened here",
+    "status": "finished"
   }
 ]
