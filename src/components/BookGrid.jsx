@@ -121,6 +121,19 @@ export default function BookGrid() {
           );
         })}
       </div>
+      <div className="flex flex-col items-center justify-center mt-20 mb-8">
+        <p className="text-lg text-gray-300 text-center max-w-xl">
+          BookShelf is my personal space to collect, reflect, and share on the books that have shaped my journey. I hope it inspires you to read, think, and grow too.
+        </p>
+        <a
+          href="https://jovensoh.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 px-6 py-2 rounded-lg text-gray-300 hover:text-white hover:underline transition-colors duration-200 text-base font-medium"
+        >
+          Visit Me
+        </a>
+      </div>
     </main>
   );
 }
