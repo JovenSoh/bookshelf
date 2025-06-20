@@ -86,7 +86,7 @@ export default function BookGrid() {
 
   return (
     <main className="min-h-screen px-2 sm:px-4 md:px-12 py-8 md:py-12 text-white">
-      <div className="flex flex-col space-y-12 items-center">
+      <div className="flex flex-col items-center">
         {bookRows.map((row, rowIdx) => {
           const expandedIdx = openIndexes[rowIdx];
           return (
@@ -102,7 +102,7 @@ export default function BookGrid() {
                     <button
                       key={book.id}
                       onClick={() => handleTabClick(rowIdx, realIdx)}
-                      className={`flex items-end justify-center ${isMobile ? 'w-24 h-16 min-w-[96px] max-w-[120px] border-b border-gray-800' : 'h-full w-16 border-r border-gray-800'} bg-black transition-all duration-200 focus:outline-none ${
+                      className={`flex items-end justify-center ${isMobile ? 'w-36 h-32 min-w-[96px] max-w-[150px] border-b border-gray-800' : 'h-full w-16 border-r border-gray-800'} bg-black transition-all duration-200 focus:outline-none ${
                         expandedIdx === realIdx
                           ? 'bg-[#232323] text-white font-bold' : 'text-gray-400 hover:text-white'
                       }`}
