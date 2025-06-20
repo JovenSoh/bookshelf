@@ -1,0 +1,173 @@
+[
+  {
+    "id": "1",
+    "title": "Tall Order",
+    "author": "Goh Chok Tong",
+    "coverImage": "/images/tallorder.png",
+    "synopsis": "A memoir chronicling the life and career of Singapore's second Prime Minister.",
+    "notes": "First time on the tall was funny, doing it twice was kinda lame though",
+    "status": "finished"
+  },
+  {
+    "id": "2",
+    "title": "Finding Chika",
+    "author": "Mitch Albom",
+    "coverImage": "/images/chika.png",
+    "synopsis": "A touching story about family, love, and loss.",
+    "notes": "The most precious thing you could give is time, once gone never to return.",
+    "status": "finished"
+  },
+  {
+    "id": "3",
+    "title": "Neither Civil Nor Servant",
+    "author": "Tommy Koh",
+    "coverImage": "/images/neithercivil.png",
+    "synopsis": "Reflections on diplomacy and public service in Singapore.",
+    "notes": "OG Hustler",
+    "status": "finished"
+  },
+  {
+    "id": "4",
+    "title": "A Spark of Light",
+    "author": "Jodi Picoult",
+    "coverImage": "/images/spark.png",
+    "synopsis": "A tense hostage situation at a women's health clinic.",
+    "notes": "Laws are black and white, but people are grey",
+    "status": "finished"
+  },
+  {
+    "id": "5",
+    "title": "Man's Search for Meaning",
+    "author": "Viktor E. Frankl",
+    "coverImage": "/images/mansearch.png",
+    "synopsis": "A Holocaust survivor's lessons on finding purpose in life.",
+    "notes": "When we are no longer able to change a situation, we are challenged to change ourselves.",
+    "status": "reading"
+  },
+  {
+    "id": "6",
+    "title": "Convenience Store Woman",
+    "author": "Sayaka Murata",
+    "coverImage": "/images/conveniencestore.png",
+    "synopsis": "A quirky tale of a woman finding her place in society.",
+    "notes": "Autism but instead of CS its convenience store",
+    "status": "finished"
+  },
+  {
+    "id": "7",
+    "title": "Small Great Things",
+    "author": "Jodi Picoult",
+    "coverImage": "/images/smallgreat.png",
+    "synopsis": "A gripping story about race, privilege, and justice.",
+    "notes": "",
+    "status": "finished"
+  },
+  {
+    "id": "8",
+    "title": "The Prince",
+    "author": "Niccolò Machiavelli",
+    "coverImage": "/images/prince.png",
+    "synopsis": "A classic treatise on political power and strategy.",
+    "notes": "fear and love",
+    "status": "finished"
+  },
+  {
+    "id": "9",
+    "title": "This is What Inequality Looks Like",
+    "author": "Teo You Yenn",
+    "coverImage": "/images/inequality.png",
+    "synopsis": "An exploration of poverty and inequality in Singapore.",
+    "notes": "How can you get your child to listen to you but not be like you",
+    "status": "finished"
+  },
+  {
+    "id": "10",
+    "title": "When Breath Becomes Air",
+    "author": "Paul Kalanithi",
+    "coverImage": "/images/breath.png",
+    "synopsis": "A neurosurgeon's reflection on life and mortality.",
+    "notes": "Death comes for us all. A read recommended by my sec 3 teacer",
+    "status": "finished"
+  },
+  {
+    "id": "11",
+    "title": "Of Mice and Men",
+    "author": "John Steinbeck",
+    "coverImage": "/images/mice.png",
+    "synopsis": "A story of friendship and dreams during the Great Depression.",
+    "notes": "Read this for literature class",
+    "status": "finished"
+  },
+  {
+    "id": "12",
+    "title": "Tuesdays with Morrie",
+    "author": "Mitch Albom",
+    "coverImage": "/images/tuesdays.png",
+    "synopsis": "A professor's final lessons on life.",
+    "notes": "Isn't it a cursed privilege to know when you're going to die, to die slowly and waste away. However in those last few months, truly reflect on your life",
+    "status": "finished"
+  },
+  {
+    "id": "13",
+    "title": "1984",
+    "author": "George Orwell",
+    "coverImage": "/images/1984.png",
+    "synopsis": "A dystopian vision of a totalitarian future.",
+    "notes": "Future? Or our present",
+    "status": "finished"
+  },
+  {
+    "id": "14",
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "coverImage": "/images/bnw.png",
+    "synopsis": "A futuristic society shaped by technology and control.",
+    "notes": "Peak human efficiency, where we're able to maximise everything, yet feels so inhumane.",
+    "status": "finished"
+  },
+  {
+    "id": "15",
+    "title": "The Shadows Out of Time",
+    "author": "H.P. Lovecraft",
+    "coverImage": "/images/shadow.png",
+    "synopsis": "A mind-bending tale of time travel and cosmic horror.",
+    "notes": "Wanted to read lovecraft due to the hype on cosmic horrors from Funger. However, it might not really be my kind of thing to read horror books I guess. Would try one or two more and see how it goes.",
+    "status": "finished"
+  },
+  {
+    "id": "16",
+    "title": "All Quiet on the Western Front",
+    "author": "Erich Maria Remarque",
+    "coverImage": "/images/western.png",
+    "synopsis": "A soldier's experience in World War I.",
+    "notes": "Haunting and powerful.",
+    "status": "finished"
+  },
+  {
+    "id": "17",
+    "title": "No Longer Human",
+    "author": "Osamu Dazai",
+    "coverImage": "/images/osamu.png",
+    "synopsis": "A dark exploration of alienation and despair.",
+    "notes": "Deeply introspective.",
+    "status": "reading"
+  },
+  {
+    "id": "18",
+    "title": "Ender's Game",
+    "author": "Orson Scott Card",
+    "coverImage": "/images/ender.png",
+    "synopsis": "A young boy is trained to save humanity from alien threat.",
+    "notes": "Exciting and thought-provoking.",
+    "status": "finished"
+  },
+  {
+    "id": "19",
+    "title": "The Five People You Meet in Heaven",
+    "author": "Mitch Albom",
+    "coverImage": "/images/heaven.png",
+    "synopsis": "A man's journey through the afterlife and the people he meets.",
+    "notes": "Uplifting and memorable.",
+    "status": "reading"
+  }
+]
