@@ -26,7 +26,7 @@ export default function BookModal({ id, onBack }) {
       <div className="w-full max-w-2xl">
         <h3 className="text-2xl font-semibold mb-3 text-white">Synopsis</h3>
         <p className="text-gray-300 mb-10 text-lg leading-relaxed">{book.synopsis}</p>
-        <h3 className="text-2xl font-semibold mb-3 text-white">My Notes</h3>
+        <h3 className="text-2xl font-semibold mb-3 text-white">Notes</h3>
         <textarea
           defaultValue={book.notes}
           className="w-full bg-[#18181b] text-white p-4 rounded-xl border border-gray-700 focus:outline-none text-lg min-h-[150px] resize-none shadow-md"

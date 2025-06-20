@@ -37,8 +37,8 @@ function AccordionContent({ book, expanded }) {
             <p className="text-gray-300 mb-6">{book.synopsis}</p>
             <h3 className="text-xl font-semibold mb-2">My Notes</h3>
             <textarea
-              defaultValue={book.notes}
-              className="w-full bg-black text-white p-3 rounded-lg border border-gray-700 focus:outline-none min-h-[80px] resize-none shadow-md"
+              value={book.notes}
+              className="w-full bg-black text-white resize-none shadow-md"
               rows={4}
               readOnly
             />
@@ -131,7 +131,7 @@ export default function BookGrid() {
           rel="noopener noreferrer"
           className="mt-6 px-6 py-2 rounded-lg text-gray-300 hover:text-white hover:underline transition-colors duration-200 text-base font-medium"
         >
-          Visit Me
+          Say Hi
         </a>
       </div>
     </main>
