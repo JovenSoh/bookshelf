@@ -89,35 +89,89 @@ export default function BookGrid() {
       <div className="flex flex-col items-center">
         {bookRows.map((row, rowIdx) => {
           const expandedIdx = openIndexes[rowIdx];
-          return (
-            <div
-              key={rowIdx}
-              className={`flex items-center justify-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible ${isMobile ? 'h-auto flex-col' : 'h-[350px] flex-row'}`}
-            >
-              {/* Tabs Row (scrollable on mobile) */}
-              <div className={`flex ${isMobile ? 'flex-row w-full overflow-x-auto no-scrollbar mb-2' : 'flex-row h-full'}`} style={isMobile ? { WebkitOverflowScrolling: 'touch' } : {}}>
-                {row.map((book, tabIdx) => {
-                  const realIdx = tabIdx;
-                  return (
-                    <button
-                      key={book.id}
-                      onClick={() => handleTabClick(rowIdx, realIdx)}
-                      className={`flex items-end justify-center ${isMobile ? 'w-36 h-32 min-w-[96px] max-w-[150px] border-b border-gray-800' : 'h-full w-16 border-r border-gray-800'} bg-black transition-all duration-200 focus:outline-none ${
-                        expandedIdx === realIdx
-                          ? 'bg-[#232323] text-white font-bold' : 'text-gray-400 hover:text-white'
-                      }`}
-                      style={isMobile ? { writingMode: 'horizontal-tb', textOrientation: 'mixed', fontSize: '1rem', letterSpacing: '0.05em' } : { writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
-                      disabled={animating}
-                    >
-                      {book.title}
-                    </button>
-                  );
-                })}
+          if (isMobile) {
+            // Mobile: horizontal scrollable tabs, expanded content below
+            return (
+              <div
+                key={rowIdx}
+                className="flex flex-col items-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible h-auto mb-8"
+              >
+                <div className="flex flex-row w-full overflow-x-auto no-scrollbar mb-2" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  {row.map((book, tabIdx) => {
+                    const realIdx = tabIdx;
+                    return (
+                      <button
+                        key={book.id}
+                        onClick={() => handleTabClick(rowIdx, realIdx)}
+                        className={`flex items-end justify-center w-36 h-32 min-w-[96px] max-w-[150px] border-b border-gray-800 bg-black transition-all duration-200 focus:outline-none ${
+                          expandedIdx === realIdx
+                            ? 'bg-[#232323] text-white font-bold' : 'text-gray-400 hover:text-white'
+                        } ${'' /* removed overflow-hidden whitespace-nowrap text-ellipsis for mobile */}`}
+                        style={{ writingMode: 'horizontal-tb', textOrientation: 'mixed', fontSize: '1rem', letterSpacing: '0.05em' }}
+                        disabled={animating}
+                        title={book.title}
+                      >
+                        {book.title}
+                      </button>
+                    );
+                  })}
+                </div>
+                <AccordionContent book={row[expandedIdx]} expanded={true} isMobile={true} />
               </div>
-              {/* Expanded Content */}
-              <AccordionContent book={row[expandedIdx]} expanded={true} isMobile={isMobile} />
-            </div>
-          );
+            );
+          } else {
+            // Desktop: classic accordion effect
+            const leftTabs = row.slice(0, expandedIdx + 1);
+            const rightTabs = row.slice(expandedIdx + 1);
+            return (
+              <div
+                key={rowIdx}
+                className="flex items-center justify-center w-full max-w-6xl rounded-xl shadow-lg overflow-visible h-[350px] mb-8"
+              >
+                {/* Left Tabs */}
+                <div className="flex flex-row h-full">
+                  {leftTabs.map((book, tabIdx) => {
+                    const realIdx = tabIdx;
+                    return (
+                      <button
+                        key={book.id}
+                        onClick={() => handleTabClick(rowIdx, realIdx)}
+                        className={`flex items-end justify-center h-full w-16 border-r border-gray-800 bg-black transition-all duration-200 focus:outline-none ${
+                          expandedIdx === realIdx
+                            ? 'bg-[#232323] text-white font-bold' : 'text-gray-400 hover:text-white'
+                        }`}
+                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
+                        disabled={animating}
+                        title={book.title}
+                      >
+                        {book.title}
+                      </button>
+                    );
+                  })}
+                </div>
+                {/* Expanded Content */}
+                <AccordionContent book={row[expandedIdx]} expanded={true} isMobile={false} />
+                {/* Right Tabs */}
+                <div className="flex flex-row h-full">
+                  {rightTabs.map((book, tabIdx) => {
+                    const realIdx = expandedIdx + 1 + tabIdx;
+                    return (
+                      <button
+                        key={book.id}
+                        onClick={() => handleTabClick(rowIdx, realIdx)}
+                        className={`flex items-end justify-center h-full w-16 border-r border-gray-800 bg-black transition-all duration-200 focus:outline-none text-gray-400 hover:text-white`}
+                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
+                        disabled={animating}
+                        title={book.title}
+                      >
+                        {book.title}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          }
         })}
       </div>
       <div className="flex flex-col items-center justify-center mt-20 mb-8 px-2">
