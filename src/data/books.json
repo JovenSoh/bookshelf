@@ -2,10 +2,10 @@
   {
     "id": "1",
     "title": "Tall Order",
-    "author": "Goh Chok Tong",
+    "author": "Peh Shing Huei",
     "coverImage": "images/tallorder.jpg",
     "synopsis": "A memoir chronicling the life and career of Singapore's second Prime Minister.",
-    "notes": "First time on the tall was funny, doing it twice was kinda lame though",
+    "notes": "First time on the tall was funny, doing it twice was kinda lame though. Otherwise, it does share some decent insights into the style of leadership change and how different it really was from the Lee era.",
     "status": "finished"
   },
   {
@@ -68,7 +68,7 @@
     "author": "Niccolò Machiavelli",
     "coverImage": "images/prince.jpg",
     "synopsis": "A classic treatise on political power and strategy.",
-    "notes": "fear and love",
+    "notes": "Read this cause I was feeling edgy. However, to rule is to understand human nature and not be human",
     "status": "finished"
   },
   {
@@ -77,7 +77,7 @@
     "author": "Teo You Yenn",
     "coverImage": "images/inequality.jpg",
     "synopsis": "An exploration of poverty and inequality in Singapore.",
-    "notes": "How can you get your child to listen to you but not be like you",
+    "notes": "How can you get your child to listen to you to advice like studying and working hard while try not to turn out like you?",
     "status": "finished"
   },
   {
@@ -86,7 +86,7 @@
     "author": "Paul Kalanithi",
     "coverImage": "images/breath.jpg",
     "synopsis": "A neurosurgeon's reflection on life and mortality.",
-    "notes": "Death comes for us all. A read recommended by my sec 3 teacher",
+    "notes": "Death comes for us all. My mother battled Stage IV metastatic lung cancer too. A read recommended by my sec 3 teacher.",
     "status": "finished"
   },
   {
@@ -113,7 +113,7 @@
     "author": "George Orwell",
     "coverImage": "images/1984.jpg",
     "synopsis": "A dystopian vision of a totalitarian future.",
-    "notes": "Future? Or our present",
+    "notes": "Started as a fiction book, now non-fiction. Sadly not too surprised. ",
     "status": "finished"
   },
   {
@@ -122,7 +122,7 @@
     "author": "Aldous Huxley",
     "coverImage": "images/bnw.jpg",
     "synopsis": "A futuristic society shaped by technology and control.",
-    "notes": "Peak human efficiency, where we're able to maximise everything, yet feels so inhumane.",
+    "notes": "If humanity were to so easily be controlled, and everything be optimised, then what is the point of living?",
     "status": "finished"
   },
   {
@@ -140,7 +140,7 @@
     "author": "Erich Maria Remarque",
     "coverImage": "images/western.jpg",
     "synopsis": "A soldier's experience in World War I.",
-    "notes": "Read the novel then watched the netflix movie. Was serving the nation when I was reading this.",
+    "notes": "Read the novel then watched the netflix movie. Was serving the nation when I was reading this. Really liked the banality of the characters, and how the main character dies in the final hours of the war. The delay in the treaty which cause ens of thousands more unnecessary deaths was due to having a 'poetic' timing to end the war. Really a foolish waste of lives just to satisfy the hubris of leaders, just like the war in general.",
     "status": "finished"
   },
   {
@@ -169,5 +169,32 @@
     "synopsis": "A man's journey through the afterlife and the people he meets.",
     "notes": "ngl forgot what happened here",
     "status": "finished"
+  },
+  {
+    "id": "20",
+    "title": "If Cats Disappeared from the World",
+    "author": "Genki Kawamura",
+    "coverImage": "images/cats.jpg",
+    "synopsis": "A dying postman strikes a deal with the Devil to erase things from existence in exchange for more time, prompting a reflection on love, loss, and what truly matters.",
+    "notes": "Teared a few times reading this. ",
+    "status": "finished"
+  },
+  {
+    "id": "21",
+    "title": "Hunger Games",
+    "author": "Suzanne Collins",
+    "coverImage": "images/hunger.jpg",
+    "synopsis": "In a dystopian world, a young girl must survive a brutal televised death match while challenging a tyrannical regime.",
+    "notes": "Really happy that the author is still expanding on the universe. Panem yesterday, Panem today, Panem tomorrow.",
+    "status": "finished"
+  },
+  {
+    "id": "22",
+    "title": "Notes From Underground",
+    "author": "Fyodor Dostoevsky",
+    "coverImage": "images/notes.jpg",
+    "synopsis": "A bitter, isolated man delivers a scathing, introspective monologue that lays bare the contradictions of human reason, freedom, and alienation.",
+    "notes": "still reading, would cook something soon",
+    "status": "reading"
   }
 ]

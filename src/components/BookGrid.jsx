@@ -39,8 +39,6 @@ function AccordionContent({ book, expanded, isMobile }) {
             className={`object-cover rounded-xl shadow-2xl ${isMobile ? 'w-40 h-56 mb-4' : 'w-[220px] h-[350px] mr-8 ml-8 bg-black'}`}
           />
           <div className={`flex-1 flex flex-col justify-center ${isMobile ? 'items-center px-2' : 'pr-8 bg-black'}`}>
-            <h1 className={`font-bold mb-2 ${isMobile ? 'text-2xl text-center' : 'text-3xl'}`}>{book.title}</h1>
-            <h2 className={`mb-4 font-medium text-gray-300 ${isMobile ? 'text-base text-center' : 'text-lg mb-6'}`}>By {book.author}</h2>
             <h3 className={`font-semibold mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>Synopsis</h3>
             <p className={`mb-4 text-gray-300 ${isMobile ? 'text-sm text-center' : 'mb-6'}`}>{book.synopsis}</p>
             <h3 className={`font-semibold mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>My Notes</h3>
