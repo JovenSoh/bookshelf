@@ -6,13 +6,14 @@ export default function App() {
   const [selectedBookId, setSelectedBookId] = useState(null);
 
   return (
-    <div className="min-h-screen text-white" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+    <div className="min-h-screen text-white" style={{ fontFamily: 'Audrey, Times New Roman, Times, serif' }}>
       <header
         className="flex items-center justify-between px-8 py-5 shadow-md bg-black"
-        style={{ fontFamily: 'Times New Roman, Times, serif' }}
+        style={{ fontFamily: 'Audrey, Times New Roman, Times, serif' }}
       >
         <button
-          className="text-2xl font-bold tracking-tight hover:opacity-80 transition-opacity"
+          className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
+          style={{ letterSpacing: '0.25em' }}
           onClick={() => setSelectedBookId(null)}
         >
           BookShelf

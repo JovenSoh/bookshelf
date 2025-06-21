@@ -4,7 +4,7 @@ html, body {
   background: #000;
   color: #fff;
   transition: background 0.3s, color 0.3s;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Audrey', 'Times New Roman', Times, serif;
 }
 
 /* heart‑shaped mask */
@@ -22,4 +22,20 @@ html, body {
 /* light wood-tone background */
 .bg-wood {
   background-color: #f5deb3;
+}
+
+@font-face {
+  font-family: 'Audrey';
+  src: url('fonts/Audrey-Normal.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audrey';
+  src: url('fonts/Audrey-Normal.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
