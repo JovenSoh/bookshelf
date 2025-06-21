@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import books from '../data/books.json';
 
 const TABS_PER_ROW = 5;
-const PANEL_WIDTH = 700;
+const PANEL_WIDTH = 500;
 const ANIMATION_DURATION = 500; // ms
 
 function chunkArray(array, size) {
@@ -20,7 +20,7 @@ function getRandomIndexes(rows) {
 function AccordionContent({ book, expanded, isMobile }) {
   return (
     <div
-      className={`flex items-center transition-[width] duration-500 ease-in-out overflow-hidden bg-black ${
+      className={`flex items-center transition-[width] duration-500 ease-in-out overflow-hidden bg-black  ${
         isMobile
           ? `w-full max-w-full ${expanded ? 'h-auto py-6' : 'h-0 py-0'}`
           : `${expanded ? 'w-[700px]' : 'w-0'} h-full`
@@ -36,15 +36,15 @@ function AccordionContent({ book, expanded, isMobile }) {
           <img
             src={book.coverImage}
             alt={book.title}
-            className={`object-cover rounded-xl shadow-2xl ${isMobile ? 'w-40 h-56 mb-4' : 'w-[220px] h-[350px] mr-8 ml-8 bg-black'}`}
+            className={`object-cover rounded-xl shadow-2xl ${isMobile ? 'w-40 h-56 mb-4' : 'w-[150px] h-[250px] mr-4 ml-8 bg-black'}`}
           />
           <div className={`flex-1 flex flex-col justify-center ${isMobile ? 'items-center px-2' : 'pr-8 bg-black'}`}>
-            <h3 className={`font-semibold mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>Synopsis</h3>
-            <p className={`mb-4 text-gray-300 ${isMobile ? 'text-sm text-center' : 'mb-6'}`}>{book.synopsis}</p>
-            <h3 className={`font-semibold mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`}>My Notes</h3>
+            <h3 className={`font-semibold mb-2 ${isMobile ? 'text-md' : 'text-lg'}`}>Synopsis</h3>
+            <p className={`mb-4 text-gray-300 ${isMobile ? 'text-xs text-center' : 'mb-6'}`}>{book.synopsis}</p>
+            <h3 className={`font-semibold mb-2 ${isMobile ? 'text-md' : 'text-lg'}`}>My Notes</h3>
             <textarea
               value={book.notes}
-              className={`w-full bg-black text-white resize-none shadow-md ${isMobile ? 'rounded-lg focus:outline-none min-h-[60px] text-sm' : 'rounded-lg focus:outline-none '}`}
+              className={`w-full bg-black text-gray-300 resize-none shadow-md ${isMobile ? 'rounded-lg focus:outline-none min-h-[60px] text-sm' : 'rounded-lg text-sm focus:outline-none '}`}
               rows={isMobile ? 3 : 4}
               readOnly
             />
@@ -134,11 +134,11 @@ export default function BookGrid() {
                       <button
                         key={book.id}
                         onClick={() => handleTabClick(rowIdx, realIdx)}
-                        className={`flex items-end justify-center h-full w-16 border-r border-gray-800 bg-black transition-all duration-200 focus:outline-none ${
+                        className={`flex items-end justify-center h-full w-10 border-l border-gray-800 bg-black transition-all duration-200 focus:outline-none ${
                           expandedIdx === realIdx
                             ? 'bg-[#232323] text-white font-bold' : 'text-gray-400 hover:text-white'
                         }`}
-                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
+                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '0.9rem', letterSpacing: '0.15em' }}
                         disabled={animating}
                         title={book.title}
                       >
@@ -157,8 +157,8 @@ export default function BookGrid() {
                       <button
                         key={book.id}
                         onClick={() => handleTabClick(rowIdx, realIdx)}
-                        className={`flex items-end justify-center h-full w-16 border-r border-gray-800 bg-black transition-all duration-200 focus:outline-none text-gray-400 hover:text-white`}
-                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '1.1rem', letterSpacing: '0.05em' }}
+                        className={`flex items-end justify-center h-full w-10 border-y border-gray-800 bg-black transition-all duration-200 focus:outline-none text-gray-400 hover:text-white`}
+                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '0.9rem', letterSpacing: '0.15em' }}
                         disabled={animating}
                         title={book.title}
                       >
